@@ -16,12 +16,7 @@ class Users:
         function  that adds new users to the contacts list
         '''   
         
-    def delete_user(self):
-        '''
-        method that deletes user accounts
-        '''
-        Users.accounts_list.remove(self) 
-        
+  
     def save_user(self):
         Users.accounts_list.append(self)
     
@@ -44,9 +39,7 @@ class Credentials:
     '''
     Function to delete passwords from the accounts list
     '''
-    def delete_password(self):
-        Users.accounts_list.remove(self)
-        
+    
 
   
    
