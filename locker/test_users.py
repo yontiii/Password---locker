@@ -46,7 +46,18 @@ class TestUsers(unittest.TestCase):
         test_password.save_password()
         self.assertEqual(len(users.Users.accounts_list),4)
     
-    def test_delete_account      
+    def test_delete_account(self):
+        '''
+        test to delete an account from the account list
+        '''    
+        self.new_account.save_user()
+        self.new_password.save_password()
+        
+        test_user = users.Users("test","account")
+        test_password = users.Credentials("abcdefk1")
+        test_user.delete_user()
+        test_password.delete_password()
+        self.assertEqual(len(users.Users.accounts_list),2)
 if __name__ == '__main__':
     unittest.main()        
   
