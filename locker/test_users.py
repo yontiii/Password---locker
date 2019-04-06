@@ -48,7 +48,30 @@ class TestUsers(unittest.TestCase):
         test_password.save_password()
         self.assertEqual(len(users.Users.accounts_list),4)
     
-    
+    def test_delete_account(self):
+        '''
+        test_delete account to see if we can remove an account from the list
+        '''
+        
+        self.new_account.save_user()
+        self.new_password.save_password()
+        
+        test_account = users.Users("test","gmail")
+        test_password = users.Credentials("klcv8yio")
+        
+        test_account.save_user()
+        test_password.save_password()
+        
+        self.new_account.delete_account()
+        self.new_password.delete_password()
+        
+        self.assertEqual(len(users.Users.accounts_list),2)
+        
+    def test_display_accounts(self):
+        '''
+        Method that returns a list of all saved contacta
+        ''' 
+        
 if __name__ == '__main__':
     unittest.main()        
   

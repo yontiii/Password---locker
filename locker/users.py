@@ -19,6 +19,9 @@ class Users:
   
     def save_user(self):
         Users.accounts_list.append(self)
+        
+    def delete_account(self):
+        Users.accounts_list.remove(self)
     
     # @classmethod
     # def display_contacts(cls):
@@ -40,6 +43,8 @@ class Credentials:
     Function to delete passwords from the accounts list
     '''
     
+    def delete_password(self):
+        Users.accounts_list.remove(self)
 
   
    
