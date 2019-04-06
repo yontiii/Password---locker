@@ -65,7 +65,18 @@ def main():
             print("New Account")
             print("*" * 8)
             
-
+            print("Account Username ***")
+            username = input()
+            
+            print("Account name")
+            account = input()
+            
+            print("\n")
+            print("Its now time to create a password.To create your own password type own and to get an automatic one type random")
+            
+            password_type = input("Enter Password type :  ")
+        
+        
 
 if __name__ == "__main__":
     main()
