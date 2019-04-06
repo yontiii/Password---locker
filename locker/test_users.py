@@ -65,30 +65,40 @@ class TestUsers(unittest.TestCase):
         test_password.save_password()
         self.assertEqual(len(users.Credentials.passwords_list),2)
     
-    # def test_delete_account(self):
-    #     '''
-    #     test_delete account to see if we can remove an account from the list
-    #     '''
+    def test_delete_account(self):
+        '''
+        test_delete account to see if we can remove an account from the list
+        '''
+        self.new_account.save_user()
+        test_account = users.Users("test","gmail")
+        test_account.save_user()
+        self.new_account.delete_account()
+        self.assertEqual(len(users.Users.accounts_list),1)
         
-    #     self.new_account.save_user()
-    #     self.new_password.save_password()
+    def test_delete_password(self):
+        '''
+        test_delete password to see if we can remove a password from the list
+        '''
+        self.new_password.save_password()
+        test_password = users.Credentials("klcv8yio")
+        test_password.save_password()
+        self.new_password.delete_password()
+        self.assertEqual(len(users.Credentials.passwords_list),1)
         
-    #     test_account = users.Users("test","gmail")
-    #     test_password = users.Credentials("klcv8yio")
         
-    #     test_account.save_user()
-    #     test_password.save_password()
+    def test_display_accounts(self):
+        '''
+        Method that returns a list of all saved accounts
+        ''' 
+        self.assertEqual(users.Users.display_accounts(),users.Users.accounts_list)
         
-    #     self.new_account.delete_account()
-    #     self.new_password.delete_password()
         
-    #     self.assertEqual(len(users.Users.accounts_list),2)
+    def test_display_passwords(self):
+        '''
+        Method that returns a list of all saved accounts
+        ''' 
+        self.assertEqual(users.Credentials.display_passwords(),users.Credentials.passwords_list)
         
-    # def test_display_accounts(self):
-    #     '''
-    #     Method that returns a list of all saved accounts
-    #     ''' 
-    #     self.assertEqual(users.Users.display_accounts(),users.Users.accounts_list)
 if __name__ == '__main__':
     unittest.main()        
   
