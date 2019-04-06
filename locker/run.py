@@ -92,7 +92,23 @@ def main():
                 save_password(create_password(password)) # saving the password
                 print('\n')
                 print(f"New account with username {username} for the account {account} successfully created")
-                break
+        
+        elif key_word == 'da':
+            if display_accounts():
+                print("Here is a list of all your created accounts")
+                print('\n')
+                
+                for account in display_accounts():
+                    print(f"{username}...{account}...{password}")
+                    
+                    print('\n')
+            else:
+                print('\n')
+                print("You don't seem to have created any accounts yet")
+        elif key_word ==  'ex':
+            print
+               
+            
                     
                     
                     
