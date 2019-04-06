@@ -23,9 +23,13 @@ class Users:
     def delete_account(self):
         Users.accounts_list.remove(self)
     
-    # @classmethod
-    # def display_contacts(cls):
-    #     return Users.accounts_list
+    @classmethod
+    def display_accounts(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.accounts_list
+    
     
 class Credentials:
     """

@@ -71,7 +71,7 @@ class TestUsers(unittest.TestCase):
         '''
         Method that returns a list of all saved contacta
         ''' 
-        
+        self.assertEqual(users.Users.display_accounts(),users.Users.accounts_list)
 if __name__ == '__main__':
     unittest.main()        
   
