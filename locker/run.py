@@ -42,7 +42,7 @@ def del_password(password):
     '''
     users.delete_password()
     
-def display_contacts():
+def display_accounts():
     '''
     function that returns all saved accounts
     '''
@@ -106,8 +106,12 @@ def main():
                 print('\n')
                 print("You don't seem to have created any accounts yet")
         elif key_word ==  'ex':
-            print
-               
+            print("Thank You for choosing the Password locker.Byee..")
+            break
+            
+    else:
+        print
+        ("Please use the specified keywords to access our services.")      
             
                     
                     
