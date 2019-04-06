@@ -74,20 +74,25 @@ def main():
             print("\n")
             print("Its now time to create a password.To create your own password type own and to get an automatic one type random")
             
-            password_type = input("Enter Password type :  ").lower()
+            password = input("Enter Password type :  ").lower()
 
-            if password_type == 'own':
+            if password == 'own':
                 print("Enter Password")
                 password = input()
+                print(f"New account with username {username} for the account {account} successfully created")
             
-            elif password_type == 'random':
+            elif password == 'random':
                 def randomPassword(length):
                     letters = string.ascii_letters
                     return ''.join((random.choice(letters)) for i in range(length))
                 print("Your password is ", randomPassword(8))
-                else:
-                    print("Please make a valid choice")
-                   save_account(create_account(username,account)) # saving the new user details created 
+              
+                    
+                save_account(create_account(username,account)) # saving the new user details created
+                save_password(create_password(password)) # saving the password
+                print('\n')
+                print(f"New account with username {username} for the account {account} successfully created")
+                break
                     
                     
                     
