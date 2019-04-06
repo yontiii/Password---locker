@@ -17,6 +17,7 @@ class TestUsers(unittest.TestCase):
         tearDown method that cleans up after each testCase is done
         '''
         users.Users.accounts_list = []
+        users.Credentials.passwords_list =[]
     
     def test_init(self):
         self.assertEqual(self.new_account.username,"John")
@@ -46,14 +47,23 @@ class TestUsers(unittest.TestCase):
         This is to check whether multiple users can create multiple accounts
         '''
         self.new_account.save_user()
-        self.new_password.save_password()
+        
         
         test_user = users.Users("test","account")
-        test_password = users.Credentials("abcdefk1")
+       
         test_user.save_user()
-        test_password.save_password()
+       
         self.assertEqual(len(users.Users.accounts_list),2)
-        self.assertEqual(len(users.Credentials.passwords_list),1)
+       
+        
+    def test_save_multiple_passwords(self):
+        '''
+        This was a test to check whether multiple passwords can be created
+        '''
+        self.new_password.save_password()
+        test_password = users.Credentials("abcdefk1")
+        test_password.save_password()
+        self.assertEqual(len(users.Credentials.passwords_list),2)
     
     # def test_delete_account(self):
     #     '''
@@ -76,7 +86,7 @@ class TestUsers(unittest.TestCase):
         
     # def test_display_accounts(self):
     #     '''
-    #     Method that returns a list of all saved contacta
+    #     Method that returns a list of all saved accounts
     #     ''' 
     #     self.assertEqual(users.Users.display_accounts(),users.Users.accounts_list)
 if __name__ == '__main__':
