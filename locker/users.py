@@ -35,6 +35,9 @@ class Credentials:
     """
     Class that generates new instances of passwords
      """
+     
+    passwords_list = []
+     
     def __init__(self,password):
         self.password = password
     
@@ -42,13 +45,13 @@ class Credentials:
     function to add passwords to the accounts list
     '''
     def save_password(self):
-        Users.accounts_list.append(self)
+        Credentials.passwords_list.append(self)
     '''
     Function to delete passwords from the accounts list
     '''
     
     def delete_password(self):
-        Users.accounts_list.remove(self)
+        Credentials.passwords_list.remove(self)
 
   
    
