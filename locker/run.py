@@ -109,7 +109,8 @@ def main():
                 print('\n')
                 
                 for user in display_accounts():
-                    print(f"{username}...{account},..{password}")
+                    print(f"{users.username}...{users.account},..{users.password}")
+
                     
                     print('\n')
             else:

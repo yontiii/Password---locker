@@ -38,7 +38,7 @@ class TestUsers(unittest.TestCase):
         self.new_account.save_user()
         test_user = Users("test","account","jhkl")
         test_user.save_user()
-        self.assertEqual(len(Users.accounts_list),3)
+        self.assertEqual(len(Users.accounts_list),2)
        
         
     # def test_save_multiple_passwords(self):
