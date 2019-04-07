@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from users import Users
 from users import Credentials
+from prettytable import PrettyTable 
 import string
 import random
 
@@ -110,7 +111,11 @@ def main():
                 print('\n')
                 
                 for user in display_accounts():
-                    print(f"Username :{user.username}...Account :{user.account}...Password :{user.password}")
+                    table = PrettyTable()
+                    table.field_names = ["UserName","Account","Password"]
+                    table.add_row([user.username,user.account,user.password])
+                    # print(f"Username :{user.username}...Account :{user.account}...Password :{user.password}")
+                    print(table)
 
                     
                     print('\n')
