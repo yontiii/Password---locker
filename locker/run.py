@@ -95,7 +95,8 @@ def main():
                 def randomPassword(length):
                     letters = string.ascii_letters
                     return ''.join((random.choice(letters)) for i in range(length))
-                rpassword = print("Your password is ", randomPassword(8))
+                password = randomPassword(8)
+                print("Your password is ", randomPassword(8))
               
                     
                 save_account(create_account(username,account,password)) # saving the new user details created
@@ -109,7 +110,7 @@ def main():
                 print('\n')
                 
                 for user in display_accounts():
-                    print(f"{users.username}...{users.account},..{users.password}")
+                    print(f"Username :{user.username}...Account :{user.account}...Password :{user.password}")
 
                     
                     print('\n')
