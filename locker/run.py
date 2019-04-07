@@ -2,6 +2,8 @@
 from users import Users
 from users import Credentials
 from prettytable import PrettyTable 
+import colored
+from colored import stylize
 import string
 import random
 
@@ -56,7 +58,7 @@ def display_accounts():
 #     return Credentials.display_passwords()
 
 def main():
-    print("Welcome to Password locker Version 1.0. What is your name?")
+    print(stylize("Welcome to Password locker Version 1.0. What is your name?",colored.fg("red")))
     
     user_name = input()
     print('\n')

@@ -16,13 +16,14 @@ class Users:
         '''
         function  that adds new users to the accounts list
         '''   
-        
-  
     def save_user(self):
         Users.accounts_list.append(self)
         
     def delete_account(self):
         Users.accounts_list.remove(self)
+        '''
+        method that removes an account from the accounts list
+        '''
     
     @classmethod
     def display_accounts(cls):
@@ -36,6 +37,27 @@ class Credentials:
     """
     Class that enables users to key in their credentials to help them remember their passwords easily
      """
+    def __init__(self,magicword,account,email):
+        '''
+        initialized the class with three arguments
+        '''
+        self.magicword = magicword
+        self.account = account
+        self.email =email
+    
+    Credentials_list = []
+    '''
+    list that holds every credential made
+    '''
+    
+    def save_credential(self):
+        Credentials.Credentials_list.append(self)
+        
+    def delete_credential(self):
+        Credentials.Credentials_list.remove(self)
+        '''
+        method that removes a credential from the credentials list
+        '''
     
 
   

@@ -24,3 +24,16 @@ To use the application, follow the following steps :
 
 5.You will now be required to follow the prompts that follow.
 
+## Technologies Used.
+Python3.6
+String and Random modules
+
+## BEHAVIOUR DRIVEN DEVELOPMENT
+| GENERAL BEHAVIOUR | INPUT | OUTPUT|
+|:------------------|:--------|:-----------|
+|A user wants to save an account|Enter user details|Show Entered Details|
+|A user wants to view current accounts|Enter View accounts|The app generates a list of all current accounts|
+|A user wants to delete an account|Enter delete account|The app deletes the account from the list|
+
+## Contact information
+Buy me a coffee at : muasajohn01@gmail.com
