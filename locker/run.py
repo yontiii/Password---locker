@@ -14,12 +14,12 @@ def create_account(username,account,password):
     new_account = Users(username,account,password)
     return new_account
     
-# def create_password(password):
-#     '''
-#     function to create a password
-#     '''
-#     new_password = Credentials(password)
-#     return new_password
+def create_credentials(magicword,account,email):
+    '''
+    function to create a credential
+    '''
+    new_credentials = Credentials(magicword,account,email)
+    return new_credentials
 
 def save_account(users):
     '''
@@ -27,11 +27,11 @@ def save_account(users):
     '''
     users.save_user()
 
-# def save_password(password):
-#     '''
-#     function to save users
-#     '''
-#     password.save_password()
+def save_credentials(credentials):
+    '''
+    function to save credentials
+    '''
+    credentials.save_credential()
 
 def del_user(users):
     '''
@@ -39,11 +39,11 @@ def del_user(users):
     '''
     users.delete_account()
     
-# def del_password(password):
-#     '''
-#     Function to delete a user password
-#     '''
-#     users.delete_password()
+def del_credentials(credentials):
+    '''
+    Function to delete a user credentials
+    '''
+    credentials.delete_credential()
     
 def display_accounts():
     '''
@@ -51,14 +51,14 @@ def display_accounts():
     '''
     return Users.display_accounts()
 
-# def display_passwords():
-#     '''
-#     function that returns all saved accounts
-#     '''
-#     return Credentials.display_passwords()
+def display_credentials():
+    '''
+    function that returns all saved credentials
+    '''
+    return Credentials.display_credentials()
 
 def main():
-    print(stylize("Welcome to Password locker Version 1.0. What is your name?",colored.fg("red")))
+    print(stylize("Welcome to Password locker Version 1.0. What is your name?",colored.fg("blue")))
     
     user_name = input()
     print('\n')
@@ -66,7 +66,8 @@ def main():
     print('\n')
     
     while True:
-        print("Use these key words to continue : ca - create a new account, da -display all active accounts, ex -exit the password locker")
+        print("Use these key words to continue : ca - create a new account, da -display all active accounts, cc- to create a credential for your account, dc - to display credentials , ex -exit the password locker")
+        print("\n")
         
         key_word = input().lower()
         
@@ -127,6 +128,33 @@ def main():
             else:
                 print('\n')
                 print("You don't seem to have created any accounts yet")
+                
+                
+        elif key_word == 'cc':
+            print("Creating a Credential for your account lets you save important details of the password")
+            print("\n")
+            print("-" *10)
+            print("Enter a magicword that will help you remember your passwords easily")
+            magicword = input()
+            print("\n")
+            print("Enter the name of the account you are creating the credentials")
+            account = input()
+            print("Enter your email please")
+            email = input()
+            
+            save_credentials(create_credentials(magicword,account,email))
+            print(stylize(f"New Credentials for the account {account} successfully created",colored.fg("green")))
+            
+        elif key_word == 'dc':
+            print("Here are all your credentials")
+            print("\n")
+            
+            for words in display_credentials():
+                c_table = PrettyTable()
+                c_table.field_names=["MagicWord","Account","Email"]
+                c_table.add_row([words.magicword,words.account,words.email])
+                print(c_table)
+            
         elif key_word ==  'ex':
             print("Thank You for choosing the Password locker.Byee..")
             break

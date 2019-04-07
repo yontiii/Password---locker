@@ -40,13 +40,20 @@ class CredentialsTest(unittest.TestCase):
         self.assertEqual(len(Credentials.Credentials_list),2)
         
     def test_delete_credential(self):
+        
         self.new_credentials.save_credential()
         test_credential = Credentials("test","account","test@me.com")
         test_credential.save_credential()
         self.new_credentials.delete_credential()
         self.assertEqual(len(Credentials.Credentials_list),1)
         
-    
+    def test_display_credentials(self):
+        '''
+        test to check if the application can display all available credentials
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.Credentials_list)
+        
+        
         
         
     

@@ -28,7 +28,7 @@ class Users:
     @classmethod
     def display_accounts(cls):
         '''
-        method that returns the contact list
+        method that returns the accounts list
         '''
         return cls.accounts_list
     
@@ -58,6 +58,12 @@ class Credentials:
         '''
         method that removes a credential from the credentials list
         '''
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.Credentials_list
     
 
   
