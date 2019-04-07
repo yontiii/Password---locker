@@ -4,11 +4,11 @@ from users import Credentials
 import string
 import random
 
-def create_account(username,account,password,confirmpassword):
+def create_account(username,account,password):
     '''
     Function to create a new account
     '''
-    new_account = Users(username,account,password,confirmpassword)
+    new_account = Users(username,account,password)
     return new_account
     
 # def create_password(password):
@@ -85,16 +85,17 @@ def main():
             if password == 'own':
                 print("Enter Password")
                 password = input()
+                print("confirm password")
                 confirmpassword = input()
                 print(f"New account with username {username} for the account {account} successfully created")
-                save_account(create_account(username,account,password,confirmpassword)) # saving the new user details created
+                save_account(create_account(username,account,password)) # saving the new user details created
                 # save_password(create_password(password)) # saving the password
             
             elif password == 'random':
                 def randomPassword(length):
                     letters = string.ascii_letters
                     return ''.join((random.choice(letters)) for i in range(length))
-                print("Your password is ", randomPassword(8))
+                rpassword = print("Your password is ", randomPassword(8))
               
                     
                 save_account(create_account(username,account,password)) # saving the new user details created
@@ -107,9 +108,8 @@ def main():
                 print("Here is a list of all your created accounts")
                 print('\n')
                 
-                for account in display_accounts():
-                    print(f"{username}...{account}")
-                    print(f"The password for the above account is {password}")
+                for user in display_accounts():
+                    print(f"{username}...{account},..{password}")
                     
                     print('\n')
             else:

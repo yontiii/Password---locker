@@ -4,7 +4,7 @@ class Users:
     """
     accounts_list = []# empty users list where all accounts created will be stored
     
-    def __init__(self,username,account,password,confirmpassword):
+    def __init__(self,username,account,password):
         """
         Args:
         username: new User username
@@ -13,7 +13,6 @@ class Users:
         self.username = username
         self.account = account
         self.password = password
-        self.confirmpassword = confirmpassword
         '''
         function  that adds new users to the accounts list
         '''   
