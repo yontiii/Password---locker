@@ -88,10 +88,13 @@ def main():
                 password = input()
                 print("confirm password")
                 confirmpassword = input()
-                print(f"New account with username {username} for the account {account} successfully created")
-                save_account(create_account(username,account,password)) # saving the new user details created
+                if password == confirmpassword:
+                    print(f"New account with username {username} for the account {account} successfully created")
+                    save_account(create_account(username,account,password)) # saving the new user details created
                 # save_password(create_password(password)) # saving the password
-            
+                else:
+                      print("Your passwords don't match.")
+                
             elif password == 'random':
                 def randomPassword(length):
                     letters = string.ascii_letters
