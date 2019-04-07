@@ -4,13 +4,15 @@ class Users:
     """
     accounts_list = []# empty users list where all accounts created will be stored
     
-    def __init__(self,username,account):
+    def __init__(self,username,account,password,confirmpassword):
         """
         Args:
         username: new User username
         account: new User account
         """
         self.username = username
+        self.account = account
+        self.account = account
         self.account = account
         '''
         function  that adds new users to the contacts list

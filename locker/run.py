@@ -86,6 +86,8 @@ def main():
                 print("Enter Password")
                 password = input()
                 print(f"New account with username {username} for the account {account} successfully created")
+                save_account(create_account(username,account)) # saving the new user details created
+                save_password(create_password(password)) # saving the password
             
             elif password == 'random':
                 def randomPassword(length):
