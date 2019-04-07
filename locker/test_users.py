@@ -1,6 +1,6 @@
 import unittest
-import users  
-
+from users import  Users
+from users import  Credentials
 class TestUsers(unittest.TestCase):
     '''
     TestCase that defines test cases for the user and credential class behaviours
@@ -9,15 +9,15 @@ class TestUsers(unittest.TestCase):
         '''
         setUp method to run before each cases
         '''
-        self.new_account = users.Users("John","Facebook")
-        self.new_password = users.Credentials("jklmn25")
+        self.new_account = Users("John","Facebook")
+        self.new_password = Credentials("jklmn25")
         
     def tearDown(self):
         '''
         tearDown method that cleans up after each testCase is done
         '''
-        users.Users.accounts_list = []
-        users.Credentials.passwords_list =[]
+        accounts_list = []
+        Credentials.passwords_list =[]
     
     def test_init(self):
         self.assertEqual(self.new_account.username,"John")
@@ -33,14 +33,14 @@ class TestUsers(unittest.TestCase):
          '''
          
          self.new_account.save_user()   
-         self.assertEqual(len(users.Users.accounts_list),1)
+         self.assertEqual(len(Users.accounts_list),4)
          
     def test_save_password(self):
         ''''
         To test if the password is being saved in the passwords list
         '''
         self.new_password.save_password()
-        self.assertEqual(len(users.Credentials.passwords_list),1)
+        self.assertEqual(len(Credentials.passwords_list),1)
     
     def test_save_multiple_accounts(self):
         '''
@@ -49,11 +49,11 @@ class TestUsers(unittest.TestCase):
         self.new_account.save_user()
         
         
-        test_user = users.Users("test","account")
+        test_user = Users("test","account")
        
         test_user.save_user()
        
-        self.assertEqual(len(users.Users.accounts_list),2)
+        self.assertEqual(len(Users.accounts_list),3)
        
         
     def test_save_multiple_passwords(self):
@@ -61,43 +61,43 @@ class TestUsers(unittest.TestCase):
         This was a test to check whether multiple passwords can be created
         '''
         self.new_password.save_password()
-        test_password = users.Credentials("abcdefk1")
+        test_password = Credentials("abcdefk1")
         test_password.save_password()
-        self.assertEqual(len(users.Credentials.passwords_list),2)
+        self.assertEqual(len(Credentials.passwords_list),2)
     
     def test_delete_account(self):
         '''
         test_delete account to see if we can remove an account from the list
         '''
         self.new_account.save_user()
-        test_account = users.Users("test","gmail")
+        test_account = Users("test","gmail")
         test_account.save_user()
         self.new_account.delete_account()
-        self.assertEqual(len(users.Users.accounts_list),1)
+        self.assertEqual(len(Users.accounts_list),1)
         
     def test_delete_password(self):
         '''
         test_delete password to see if we can remove a password from the list
         '''
         self.new_password.save_password()
-        test_password = users.Credentials("klcv8yio")
+        test_password = Credentials("klcv8yio")
         test_password.save_password()
         self.new_password.delete_password()
-        self.assertEqual(len(users.Credentials.passwords_list),1)
+        self.assertEqual(len(Credentials.passwords_list),1)
         
         
     def test_display_accounts(self):
         '''
         Method that returns a list of all saved accounts
         ''' 
-        self.assertEqual(users.Users.display_accounts(),users.Users.accounts_list)
+        self.assertEqual(Users.display_accounts(),Users.accounts_list)
         
         
     def test_display_passwords(self):
         '''
         Method that returns a list of all saved accounts
         ''' 
-        self.assertEqual(users.Credentials.display_passwords(),users.Credentials.passwords_list)
+        self.assertEqual(Credentials.display_passwords(),Credentials.passwords_list)
         
 if __name__ == '__main__':
     unittest.main()        
