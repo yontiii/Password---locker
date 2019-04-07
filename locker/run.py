@@ -4,19 +4,19 @@ from users import Credentials
 import string
 import random
 
-def create_account(username,account):
+def create_account(username,account,password,confirmpassword):
     '''
     Function to create a new account
     '''
-    new_account = Users(username,account)
+    new_account = Users(username,account,password,confirmpassword)
     return new_account
     
-def create_password(password):
-    '''
-    function to create a password
-    '''
-    new_password = Credentials(password)
-    return new_password
+# def create_password(password):
+#     '''
+#     function to create a password
+#     '''
+#     new_password = Credentials(password)
+#     return new_password
 
 def save_account(users):
     '''
@@ -24,11 +24,11 @@ def save_account(users):
     '''
     users.save_user()
 
-def save_password(password):
-    '''
-    function to save users
-    '''
-    password.save_password()
+# def save_password(password):
+#     '''
+#     function to save users
+#     '''
+#     password.save_password()
 
 def del_user(users):
     '''
@@ -36,11 +36,11 @@ def del_user(users):
     '''
     users.delete_account()
     
-def del_password(password):
-    '''
-    Function to delete a user password
-    '''
-    users.delete_password()
+# def del_password(password):
+#     '''
+#     Function to delete a user password
+#     '''
+#     users.delete_password()
     
 def display_accounts():
     '''
@@ -48,11 +48,11 @@ def display_accounts():
     '''
     return Users.display_accounts()
 
-def display_passwords():
-    '''
-    function that returns all saved accounts
-    '''
-    return Credentials.display_passwords()
+# def display_passwords():
+#     '''
+#     function that returns all saved accounts
+#     '''
+#     return Credentials.display_passwords()
 
 def main():
     print("Welcome to Password locker Version 1.0. What is your name?")
@@ -85,9 +85,10 @@ def main():
             if password == 'own':
                 print("Enter Password")
                 password = input()
+                confirmpassword = input()
                 print(f"New account with username {username} for the account {account} successfully created")
-                save_account(create_account(username,account)) # saving the new user details created
-                save_password(create_password(password)) # saving the password
+                save_account(create_account(username,account,password,confirmpassword)) # saving the new user details created
+                # save_password(create_password(password)) # saving the password
             
             elif password == 'random':
                 def randomPassword(length):
@@ -96,8 +97,8 @@ def main():
                 print("Your password is ", randomPassword(8))
               
                     
-                save_account(create_account(username,account)) # saving the new user details created
-                save_password(create_password(password)) # saving the password
+                save_account(create_account(username,account,password)) # saving the new user details created
+                # save_password(create_password(password)) # saving the password
                 print('\n')
                 print(f"New account with username {username} for the account {account} successfully created")
         
@@ -108,7 +109,6 @@ def main():
                 
                 for account in display_accounts():
                     print(f"{username}...{account}")
-                for password in display_passwords():
                     print(f"The password for the above account is {password}")
                     
                     print('\n')

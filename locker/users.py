@@ -12,10 +12,10 @@ class Users:
         """
         self.username = username
         self.account = account
-        self.account = account
-        self.account = account
+        self.password = password
+        self.confirmpassword = confirmpassword
         '''
-        function  that adds new users to the contacts list
+        function  that adds new users to the accounts list
         '''   
         
   
@@ -35,32 +35,9 @@ class Users:
     
 class Credentials:
     """
-    Class that generates new instances of passwords
+    Class that enables users to key in their credentials to help them remember their passwords easily
      """
-     
-    passwords_list = []
-     
-    def __init__(self,password):
-        self.password = password
     
-    '''
-    function to add passwords to the accounts list
-    '''
-    def save_password(self):
-        Credentials.passwords_list.append(self)
-    '''
-    Function to delete passwords from the accounts list
-    '''
-    
-    def delete_password(self):
-        Credentials.passwords_list.remove(self)
-        
-    @classmethod
-    def display_passwords(cls):
-        '''
-        method that returns the contact list
-        '''
-        return cls.passwords_list
 
   
    
