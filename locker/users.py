@@ -32,6 +32,26 @@ class Users:
         '''
         return cls.accounts_list
     
+    @classmethod
+    def find_by_account(cls,account):
+        '''
+        method that takes in an account and returns a locker account 
+        that matches that account
+        '''
+        for account in cls.accounts_list:
+            if account.account == account:
+                return account
+            
+    @classmethod
+    def account_exist(cls,account):
+        '''
+        method that checks if a contact exists from the
+        accounts list
+        '''
+        for accounts in cls.accounts_list:
+            if accounts.account == account:
+                return True
+        return False
     
 class Credentials:
     """

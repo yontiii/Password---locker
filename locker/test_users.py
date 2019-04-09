@@ -40,15 +40,6 @@ class TestUsers(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(Users.accounts_list),2)
        
-        
-    # def test_save_multiple_passwords(self):
-    #     '''
-    #     This was a test to check whether multiple passwords can be created
-    #     '''
-    #     self.new_password.save_password()
-    #     test_password = Credentials("abcdefk1")
-    #     test_password.save_password()
-    #     self.assertEqual(len(Credentials.passwords_list),2)
     
     def test_delete_account(self):
         '''
@@ -60,16 +51,6 @@ class TestUsers(unittest.TestCase):
         self.new_account.delete_account()
         self.assertEqual(len(Users.accounts_list),1)
         
-    # def test_delete_password(self):
-    #     '''
-    #     test_delete password to see if we can remove a password from the list
-    #     '''
-    #     self.new_password.save_password()
-    #     test_password = Credentials("klcv8yio")
-    #     test_password.save_password()
-    #     self.new_password.delete_password()
-    #     self.assertEqual(len(Credentials.passwords_list),1)
-        
         
     def test_display_accounts(self):
         '''
@@ -78,11 +59,26 @@ class TestUsers(unittest.TestCase):
         self.assertEqual(Users.display_accounts(),Users.accounts_list)
         
         
-    # def test_display_passwords(self):
-    #     '''
-    #     Method that returns a list of all saved accounts
-    #     ''' 
-    #     self.assertEqual(Credentials.display_passwords(),Credentials.passwords_list)
+    def test_find_account(self):
+        '''
+        test to check if we can find an account using the username
+        '''
+        self.new_account.save_user()
+        test_account = Users("john","facebook","jklm")
+        test_account.save_user()
+        
+        found_account = Users.find_by_account("facebook")
+        self.assertEqual(found_account.username,test_account.username)
+        
+    def test_account_exixts(self):
+        '''
+        test to check if we can return a boolean if we can not find the contact
+        '''
+        self.new_account.save_user()
+        test_account = Users("Test","account","jk25")
+        test_account.save_user()
+        account_exists = Users.account_exist("account")
+        self.assertTrue(account_exists)
         
 if __name__ == '__main__':
     unittest.main()        

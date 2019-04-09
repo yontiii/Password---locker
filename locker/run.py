@@ -57,6 +57,12 @@ def display_credentials():
     '''
     return Credentials.display_credentials()
 
+def find_by_account(account):
+    '''
+    function to return an account searched for by username
+    '''
+    return Users.find_by_account(account)
+
 def main():
     print(stylize("Welcome to Password locker Version 1.0. What is your name?",colored.fg("blue")))
     
@@ -66,7 +72,7 @@ def main():
     print('\n')
     
     while True:
-        print("Use these key words to continue : ca - create a new account, da -display all active accounts, cc- to create a credential for your account, dc - to display credentials , ex -exit the password locker")
+        print(stylize("Use these key words to continue : ca - create a new account, da -display all active accounts, cc- to create a credential for your account, dc - to display credentials ,del - to delete an  account, ex -exit the password locker",colored.fg("green")))
         print("\n")
         
         key_word = input().lower()
@@ -109,7 +115,7 @@ def main():
                 save_account(create_account(username,account,password)) # saving the new user details created
                 # save_password(create_password(password)) # saving the password
                 print('\n')
-                print(f"New account with username {username} for the account {account} successfully created")
+                print(stylize(f"New account with username {username} for the account {account} successfully created",colored.fg("green")))
         
         elif key_word == 'da':
             if display_accounts():
@@ -120,14 +126,13 @@ def main():
                     table = PrettyTable()
                     table.field_names = ["UserName","Account","Password"]
                     table.add_row([user.username,user.account,user.password])
-                    # print(f"Username :{user.username}...Account :{user.account}...Password :{user.password}")
                     print(table)
 
                     
                     print('\n')
             else:
                 print('\n')
-                print("You don't seem to have created any accounts yet")
+                print(stylize("You don't seem to have created any accounts yet",colored.fg("red")))
                 
                 
         elif key_word == 'cc':
@@ -154,9 +159,17 @@ def main():
                 c_table.field_names=["MagicWord","Account","Email"]
                 c_table.add_row([words.magicword,words.account,words.email])
                 print(c_table)
+                
+        # elif key_word == 'del':
+        #     print("Once an Account is deleted, it can't be undone")
+        #     confirm = input("Enter name of the account you wish to delete ")
+        #     find_by_account()
+        #     print(f"{member.password},{member.account},{member.username}")
+            
+            
             
         elif key_word ==  'ex':
-            print("Thank You for choosing the Password locker.Byee..")
+            print(stylize("Thank You for choosing the Password locker.Byee..",colored.fg("yellow")))
             break
             
     else:
